@@ -1,3 +1,3 @@
 <div align="center">
-  <img src="https://capsule-render.vercel.app/api?type=waving&height=220&animation=scaleIn&color=gradient&text=Spread%20Locator&fontColor=ffffff&fontSize=45&desc=Statistical%20Distribution%20Analysis%20Model&descAlignY=72&descSize=18" />
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=12,20,24&height=180&section=header&text=Spread%20Locator&fontSize=42&fontColor=fff&animation=scaleIn&fontAlignY=32&desc=Statistical%20Distribution%20Analysis%20Model&descAlignY=55&descSize=18" />
 </div>
