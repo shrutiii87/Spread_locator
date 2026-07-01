@@ -121,6 +121,18 @@ Your task is to apply statistical distribution concepts and transformations to d
 
 Model whether a transaction was **Successful (1)** or **Failed (0)**.
 
+#### imported libraries
+
+```python
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+import pandas as pd
+from scipy.stats import poisson,lognorm, powerlaw, boxcox , zscore, norm
+import statsmodels.api as sm
+```
+
 ### Python Code
 
 ```python
