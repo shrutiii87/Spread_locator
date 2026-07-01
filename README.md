@@ -15,9 +15,9 @@ an e-commerce platform that wants to understand customer purchase behaviors by a
 Your task is to apply statistical distribution concepts and transformations to derive insights on transaction behaviors.
 
 ---
-
+<div align="center">
 <img width="600" height="500" alt="_- visual selection" src="https://github.com/user-attachments/assets/4bec7b74-4175-4800-8f5b-8d8022d29ed7" />
-
+</div>
 ---
 
 # 🗂️ Project Files
