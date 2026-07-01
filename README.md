@@ -457,34 +457,6 @@ spread_locator.ipynb
 
 ---
 
-# ✅ Submission Checklist
-
-- Probability Theory
-- Random Variables
-- Bernoulli Distribution
-- Binomial Distribution
-- Geometric Distribution
-- Poisson Distribution
-- Uniform Distribution
-- Normal Distribution
-- Exponential Distribution
-- Gamma Distribution
-- Beta Distribution
-- Log-Normal Distribution
-- Power Law Distribution
-- Q-Q Plot Analysis
-- Box-Cox Transformation
-- Z-Score Analysis
-- PDF & CDF Visualization
-- Best Distribution Identification
-- Statistical Interpretations
-- Dataset Included
-- Jupyter Notebook Included
-- Theory Report Included
-- README Documentation Included
-
----
-
 # 👩‍💻 Shruti Bhawsar
 
 📍 Ahmedabad, Gujarat, India
