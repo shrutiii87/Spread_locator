@@ -67,7 +67,7 @@ Your task is to apply statistical distribution concepts and transformations to d
 
 🖼️ Theory Topics Covered
 
-Q2. What is a Q-Q Plot and Why Is It Used?
+#### Q2. What is a Q-Q Plot and Why Is It Used?
 
 <p align="center">
 
@@ -75,7 +75,7 @@ Q2. What is a Q-Q Plot and Why Is It Used?
 
 </p>
 
-Q3. Difference Between Discrete and Continuous Distributions
+#### Q3. Difference Between Discrete and Continuous Distributions
 
 <p align="center">
 
@@ -83,7 +83,7 @@ Q3. Difference Between Discrete and Continuous Distributions
 
 </p>
 
-Q4. What Is Bernoulli Distribution?
+#### Q4. What Is Bernoulli Distribution?
 
 <p align="center">
 
@@ -91,7 +91,7 @@ Q4. What Is Bernoulli Distribution?
 
 </p>
 
-Q5. What Is Binomial Distribution?
+#### Q5. What Is Binomial Distribution?
 
 <p align="center">
 
@@ -99,7 +99,7 @@ Q5. What Is Binomial Distribution?
 
 </p>
 
-Q6. Explain Log-Normal Distribution
+#### Q6. Explain Log-Normal Distribution
 
 <p align="center">
 
@@ -107,7 +107,7 @@ Q6. Explain Log-Normal Distribution
 
 </p>
 
-Q7. Explain Power Law Distribution
+#### Q7. Explain Power Law Distribution
 
 <p align="center">
 
@@ -115,7 +115,7 @@ Q7. Explain Power Law Distribution
 
 </p>
 
-Q8. What Is Box-Cox Transform?
+#### Q8. What Is Box-Cox Transform?
 
 <p align="center">
 
@@ -123,7 +123,7 @@ Q8. What Is Box-Cox Transform?
 
 </p>
 
-Q9. Explain Poisson Distribution with an Example
+#### Q9. Explain Poisson Distribution with an Example
 
 <p align="center">
 
@@ -131,7 +131,7 @@ Q9. Explain Poisson Distribution with an Example
 
 </p>
 
-Q10. What Is Z-Score Probability?
+#### Q10. What Is Z-Score Probability?
 
 <p align="center">
 
@@ -139,7 +139,7 @@ Q10. What Is Z-Score Probability?
 
 </p>
 
-Q11. Difference Between Probability Density Function (PDF) and Cumulative Distribution Function (CDF)
+#### Q11. Difference Between Probability Density Function (PDF) and Cumulative Distribution Function (CDF)
 
 <p align="center">
 
