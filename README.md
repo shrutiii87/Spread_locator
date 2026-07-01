@@ -59,9 +59,11 @@ Your task is to apply statistical distribution concepts and transformations to d
 
 ---
 
-🎬 Project Demo
+# 🎬 Project Demo
 
-📹 Complete walkthrough of the project demonstrating every probability distribution and interpretation.
+[![Watch Demo](https://img.shields.io/badge/▶️%20Watch%20Demo-Google%20Drive-blue?style=for-the-badge&logo=google-drive)](https://drive.google.com/file/d/14oUjL1ZFq75dde3BToChfZEJUA-1B9V_/view?usp=sharing)
+
+📹 Click the badge above to watch the complete project demonstration.
 
 ---
 
