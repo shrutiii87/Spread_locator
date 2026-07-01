@@ -149,11 +149,9 @@ Your task is to apply statistical distribution concepts and transformations to d
 
 ---
 
-📗 Statistical Topics Covered
+### 📗 Statistical Topics Covered
 
----
-
-imported libraries
+#### imported libraries
 
 ```python
 
