@@ -33,7 +33,6 @@ Your task is to apply statistical distribution concepts and transformations to d
 | 📘 `README.md` | Project documentation |
 
 ---
----
 
 🛠️ Tools Used
 
