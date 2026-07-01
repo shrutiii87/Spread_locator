@@ -55,24 +55,6 @@ Your task is to apply statistical distribution concepts and transformations to d
 
 ---
 
-📊 Statistical Dashboard
-
-Dataset Size        ██████████ 100%
-
-Data Quality        ██████████ Excellent
-
-Normality           ███░░░░░░░ Weak
-
-Skewness            ████████░░ High
-
-Outliers            ████░░░░░░ Moderate
-
-Distribution Fit    █████████░ Very Good
-
-Business Insights   ██████████ Excellent
-
----
-
 # 🖼️ Theory Topics Covered
 
 ### Q2. What is a Q-Q Plot and Why Is It Used?
