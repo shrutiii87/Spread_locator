@@ -65,6 +65,16 @@ Your task is to apply statistical distribution concepts and transformations to d
 
 ---
 
+### Theory part 
+
+<img width="800" height="420" alt="ezgif-2ef048b9399a16bb" src="https://github.com/user-attachments/assets/04ecbccb-d1a3-4f7a-8dd4-a3e88c4b1d8e" />
+
+### Jupyter notebook 
+
+<img width="800" height="420" alt="ezgif-1c1f29978ef62004" src="https://github.com/user-attachments/assets/415f9b3e-394f-4a27-931c-29f41d920d13" />
+
+---
+
 🖼️ Theory Topics Covered
 
 #### Q2. What is a Q-Q Plot and Why Is It Used?
