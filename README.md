@@ -49,31 +49,28 @@ To understand customer transaction behavior by applying probability distribution
 
 # 🖼️ Theory Topics Covered
 
-### Q1. What is Probability?
+### Q2.What is a Q-Q Plot and why is it used?
+<img width="555" height="240" alt="q2" src="https://github.com/user-attachments/assets/69628f94-0223-4c10-a291-89913f3fb735" />
+### Q3.Difference between Discrete and Continuous Distributions.
+<img width="542" height="229" alt="q3" src="https://github.com/user-attachments/assets/1b14a015-13f6-4fe9-a63d-edaf3fcf4c77" />
+### Q4.What is Bernoulli Distribution?
+<img width="518" height="258" alt="q4" src="https://github.com/user-attachments/assets/78d1af7d-a98d-4aca-b472-75ca132e51bd" />
+### Q5.What is Binomial Distribution?
+<img width="516" height="277" alt="q5" src="https://github.com/user-attachments/assets/8679aa2f-6a8a-4e83-aea6-f21a0394f506" />
+### Q6.Explain Log-Normal Distribution.
+<img width="525" height="245" alt="q6" src="https://github.com/user-attachments/assets/324c95a8-9528-44da-a4a0-1f48deb92d76" />
+### Q7.Explain Power Law Distribution.
+<img width="526" height="242" alt="q7" src="https://github.com/user-attachments/assets/f3e26dd6-0cdf-4683-b7d9-185b564a39fb" />
+### Q8.What is Box-Cox Transform?
+<img width="522" height="234" alt="q8" src="https://github.com/user-attachments/assets/ea307d23-558f-496f-9dc2-b713d2439b64" />
+### Q9.Explain Poisson Distribution with an example.
+<img width="521" height="257" alt="q9" src="https://github.com/user-attachments/assets/8c0e4030-14cd-4140-a408-e49dad9f00a5" />
+### Q10.What is Z-score Probability?
+<img width="523" height="239" alt="q10" src="https://github.com/user-attachments/assets/897599da-39c3-454c-92cb-608568553df8" />
+### Q11.Differentiate Probability Density Function (PDF) and Cumulative Distribution Function (CDF).
+<img width="531" height="243" alt="q11" src="https://github.com/user-attachments/assets/910e8361-44db-49c8-8c6a-b39cb1f70268" />
 
-### Q2. Random Variable
 
-### Q3. Bernoulli Distribution
-
-### Q4. Binomial Distribution
-
-### Q5. Geometric Distribution
-
-### Q6. Poisson Distribution
-
-### Q7. Uniform Distribution
-
-### Q8. Normal Distribution
-
-### Q9. Exponential Distribution
-
-### Q10. Gamma Distribution
-
-### Q11. Beta Distribution
-
-### Q12. Log-Normal Distribution
-
-### Q13. Power Law Distribution
 
 ---
 
