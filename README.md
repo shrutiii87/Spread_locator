@@ -4,7 +4,7 @@
 
 A complete **Theory + Practical Statistics Project** that applies **Probability Distributions** to a real-world financial transaction dataset containing customer transaction records.
 
-The project explores important statistical distributions including **Bernoulli, Binomial, Geometric, Poisson, Uniform, Normal, Exponential, Gamma, Beta, Log-Normal, and Power Law distributions** to analyze transaction behavior and derive meaningful business insights.
+to understand and apply the concepts of probability distributions and spread analysis on a given dataset. This will test theoretical understanding and practical application of distribution types, Q-Q plots, statistical transformations, and probability functions.
 
 The complete analysis is implemented using **Python (Jupyter Notebook)** with detailed explanations, mathematical formulas, visualizations, statistical interpretations, and business-oriented conclusions.
 
@@ -12,7 +12,9 @@ The complete analysis is implemented using **Python (Jupyter Notebook)** with de
 
 # 🎯 Objective
 
-To understand customer transaction behavior by applying probability distributions and statistical techniques on financial transaction data. The project demonstrates how different probability models can represent real-world business scenarios and support data-driven decision making.
+an e-commerce platform that wants to understand customer purchase behaviors by analyzing daily transaction amounts of customers. Management is particularly interested in knowing whether the transactions follow certain statistical distributions, how to handle skewed data, and what probability insights can be derived.
+Your task is to apply statistical distribution concepts and transformations to derive insights on transaction behaviors.
+
 
 ---
 
