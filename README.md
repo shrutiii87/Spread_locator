@@ -1,7 +1,6 @@
-
 <div align="center">
 
-  <img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=30,31,32&height=180&section=header&text=Spread%20Locator&fontSize=42&fontColor=fff&animation=twinkling&fontAlignY=32&desc=Statistical%20Distribution%20Analysis%20Model&descAlignY=55&descSize=18" />
+<img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=30,31,32&height=180&section=header&text=Spread%20Locator&fontSize=42&fontColor=fff&animation=twinkling&fontAlignY=32&desc=Statistical%20Distribution%20Analysis%20Model&descAlignY=55&descSize=18" />
 
 </div>
 
@@ -10,8 +9,6 @@ A complete Theory + Practical Statistics Project that applies Probability Distri
 to understand and apply the concepts of probability distributions and spread analysis on a given dataset. This will test theoretical understanding and practical application of distribution types, Q-Q plots, statistical transformations, and probability functions.
 
 The complete analysis is implemented using Python (Jupyter Notebook) with detailed explanations, mathematical formulas, visualizations, statistical interpretations, and business-oriented conclusions.
-
----
 
 🎯 Objective
 
@@ -24,7 +21,6 @@ Your task is to apply statistical distribution concepts and transformations to d
 <img width="960" height="540" alt="Screenshot 2026-07-01 122834" src="https://github.com/user-attachments/assets/087df644-5361-43d9-82e6-705ae2c2ec84" />
 
 ---
-
 
 🗂️ Project Files
 
@@ -43,7 +39,6 @@ Your task is to apply statistical distribution concepts and transformations to d
 | 📘 README.md | Project documentation |
 
 ---
-
 
 🛠️ Tools Used
 
