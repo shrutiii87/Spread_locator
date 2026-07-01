@@ -22,21 +22,15 @@ Your task is to apply statistical distribution concepts and transformations to d
 
 ---
 
-🗂️ Project Files
+# 🗂️ Project Files
 
-| File | Description |
-
-|------|-------------|
-
-| 📓 spread_locator.ipynb | Complete Probability Distribution Analysis |
-
-| 📊 spread_locator_dataset.xlsx | Financial transaction dataset |
-
-| 📄 Probability_Distributions_Theory.pdf | Theory, formulas, and explanations |
-
-| 🖼️ Diagrams | Theory diagrams and illustrations |
-
-| 📘 README.md | Project documentation |
+| 📁 File | 📝 Description |
+|:---------|:----------------|
+| 📓 **spread_locator.ipynb** | Complete statistical analysis, Python implementation, visualizations, and business insights. |
+| 📊 **spread_locator_dataset.xlsx** | Financial transaction dataset used for probability distribution analysis. |
+| 📄 **Probability_Distributions_Theory.pdf** | Comprehensive theory covering probability distributions, formulas, and concepts. |
+| 🖼️ **Diagrams/** | Images, theory illustrations, plots, and visual explanations used throughout the project. |
+| 📘 **README.md** | Complete project documentation, setup instructions, methodology, and results. |
 
 ---
 
