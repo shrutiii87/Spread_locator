@@ -61,7 +61,7 @@ Your task is to apply statistical distribution concepts and transformations to d
 
 # 🎬 Project Demo
 
-[![Watch Demo](https://img.shields.io/badge/▶️%20Watch%20Demo-Google%20Drive-blue?style=for-the-badge&logo=google-drive)](https://drive.google.com/file/d/1O53uz94HILKNgVykxEAZUZiwrIDi14Ri/view?usp=sharing)
+[![Watch Demo](https://img.shields.io/badge/▶️%20Watch%20Demo-Google%20Drive-blue?style=for-the-badge&logo=google-drive)](https://drive.google.com/file/d/1V1D9kEmD8bw9lGKjR7WO2MhYfowj-BYg/view?usp=sharing)
 
 📹 Click the badge above to watch the complete project demonstration.
 
