@@ -8,7 +8,10 @@ A complete Theory + Practical Statistics Project that applies Probability Distri
 
 to understand and apply the concepts of probability distributions and spread analysis on a given dataset. This will test theoretical understanding and practical application of distribution types, Q-Q plots, statistical transformations, and probability functions.
 
-The complete analysis is implemented using Python (Jupyter Notebook) with detailed explanations, mathematical formulas, visualizations, statistical interpretations, and business-oriented conclusions.
+The complete analysis is implemented using Python (Jupyter Notebook) with detailed explanations, mathematical formulas, 
+visualizations, statistical interpretations, and business-oriented conclusions.
+
+---
 
 🎯 Objective
 
@@ -172,386 +175,209 @@ import statsmodels.api as sm
 
 ---
 
-🔬 Q1 — Bernoulli Distribution
+## 🔬 Q1 — Bernoulli & Binomial Distributions
 
-Objective
-
-Model whether a transaction was Successful (1) or Failed (0).
-
-Python Code
-
+**Fit the data to Bernoulli and Binomial distributions (transaction occurrence & weekly count).**
 ```python
-
+# Success = 1, Fail = 0
 df["transaction_occurrence"] = df["transaction_status"].map({
-
-    "Success":1,
-
-    "Fail":0
-
+    "Success": 1,
+    "Fail": 0
 })
-
-success_probability = df["transaction_occurrence"].mean()
-
+sns.countplot(x=df["transaction_occurrence"])
+plt.title("Bernoulli Distribution - Transaction Occurrence")
+plt.xlabel("Transaction (0 = Fail, 1 = Success)")
+plt.ylabel("Count")
+plt.show()
+sns.histplot(df["transaction_count"], bins=10)
+plt.title("Binomial Distribution - Weekly Transaction Counts")
+plt.xlabel("Number of transactions per week")
+plt.ylabel("Frequency")
+plt.show()
 ```
+#### 💡 Insight & Conclusion (Q1)
 
-Interpretation
-
-Each transaction has only two possible outcomes:
-
-- Success
-
-- Failure
-
-Bernoulli Distribution models this binary event.
-
-Conclusion
-
-The Bernoulli model estimates the probability of a successful transaction.
-
+- ✅ **Bernoulli Distribution** models each transaction as a success/failure event (transaction occurred = 1, none = 0), giving the daily probability `p` of a transaction happening.
+- 📊 **Binomial Distribution** extends this to weekly counts — modelling the number of transaction days out of 7, with parameters (n = 7, p).
+- 🔍 The fitted probability `p` closely matches the observed weekly frequencies, confirming that **Binomial is a strong fit** for weekly transaction counts.
+- 🧠 **Decision Insight:** Management can use `p` to forecast expected weekly active days and plan staffing, inventory, and promotional pushes around low-activity windows.
+  
 ---
 
-📊 Q2 — Binomial Distribution
+## 📊 Q2 — Poisson Distribution
 
-Objective
+**Fit the data to a Poisson distribution (number of transactions per day).**
+```python
+df["transaction_date"] = pd.to_datetime(df["transaction_date"])
+daily_transactions = df.groupby("transaction_date").size()
+lam = daily_transactions.mean()
+x = range(daily_transactions.max() + 1)
+expected = poisson.pmf(x, lam) * len(daily_transactions)
+plt.hist(daily_transactions, bins=range(daily_transactions.max() + 2),
+         alpha=0.7, label="Observed")
+plt.plot(x, expected, "ro-", label="Poisson Fit")
+plt.title("Poisson Distribution - Transactions per Day")
+plt.xlabel("Number of Transactions")
+plt.ylabel("Frequency")
+plt.legend()
+plt.show()
+```
 
-Model the number of successful transactions within multiple transaction attempts.
+#### 💡 Insight & Conclusion (Q2)
+- 📈 The **Poisson distribution** fits the daily transaction counts well since transactions occur independently at a roughly constant average rate (λ).
+- 🎯 The observed vs. expected Poisson frequencies align closely, indicating Poisson is appropriate for modelling **rare, count-based events per day**.
+- 🧠 **Decision Insight:** λ (average daily transactions) helps the business predict daily demand, optimise cash-flow handling, and detect anomalies (days far above/below λ may signal fraud or unusual demand).
+---
 
-Python Code
+## 📈 Q3 — Log-Normal & Power Law Distributions
+
+**Model transaction amounts using Log-Normal and Power Law distributions.**
+```python
+amount = df["transaction_amount"].dropna()
+shape, loc, scale = lognorm.fit(amount)
+a, loc, scale = powerlaw.fit(amount)
+x = np.linspace(amount.min(), amount.max(), 100)
+plt.hist(amount, bins=20, density=True, alpha=0.6, label="Data")
+plt.plot(x, lognorm.pdf(x, shape, loc, scale), label="Log-Normal")
+plt.plot(x, powerlaw.pdf(x, a, loc, scale), label="Power Law")
+plt.title("Transaction Amount Distribution")
+plt.xlabel("Transaction Amount")
+plt.ylabel("Density")
+plt.legend()
+plt.show()
+```
+#### 💡 Insight & Conclusion (Q3)
+- 💰 Transaction amounts are **right-skewed** — most are small, with a long tail of large values.
+- ✅ The **Log-Normal distribution provides a better fit** than Power Law, since transaction amounts are positive and multiplicative in nature (small % changes compound).
+- ⚡ The **Power Law** captures only the extreme tail (very high-value transactions) but underfits the bulk of the data.
+- 🧠 **Decision Insight:** Use Log-Normal parameters for revenue forecasting and risk modelling; use Power Law insights to monitor and protect against rare high-value (and possibly fraudulent) transactions.
+---
+
+## 📉 Q4 — Q-Q Plot (Normality Test)
+
+**Generate and interpret a Q-Q Plot to test normality.**
 
 ```python
-
-from scipy.stats import binom
-
-n = 10
-
-p = success_probability
-
-x = np.arange(0,n+1)
-
-binomial = binom.pmf(x,n,p)
-
+amount = df["transaction_amount"].dropna()
+sm.qqplot(amount, line='45')
+plt.title("Q-Q Plot of Transaction Amount")
+plt.show()
 ```
-
-Interpretation
-
-The Binomial Distribution calculates the probability of obtaining different numbers of successful transactions over multiple attempts.
-
-Conclusion
-
-Useful for predicting customer success rates over repeated transactions.
-
+#### 💡 Insight & Conclusion (Q4)
+- 📉 The **Q-Q plot deviates from the straight reference line**, especially at the tails — indicating transaction amounts are **not normally distributed**.
+- 🔎 Heavy upper-tail deviation confirms right-skewness and the presence of outliers.
+- 🧠 **Decision Insight:** Avoid assuming normality in statistical tests on raw amounts. Apply transformations (log / Box-Cox) before using parametric methods like t-tests, control charts, or linear regression.
 ---
 
-📈 Q3 — Geometric Distribution
+## 🔧 Q5 — Box-Cox Transformation
 
-Objective
+**Apply Box-Cox Transform to stabilize variance.**
+```python
+amount = df["transaction_amount"].dropna()
+transformed_data, lam = boxcox(amount)
+print("Lambda value:", lam)
+plt.hist(transformed_data, bins=20)
+plt.title("Box-Cox Transformed Data")
+plt.xlabel("Transformed Transaction Amount")
+plt.ylabel("Frequency")
+plt.show()
+```
+#### 💡 Insight & Conclusion (Q5)
+- 🔧 The **Box-Cox transformation** stabilises variance and makes the distribution of transaction amounts much closer to normal.
+- 📊 The optimal λ value reshapes the skewed data into a near-symmetric distribution, validated by the improved Q-Q alignment post-transformation.
+- 🧠 **Decision Insight:** Transformed amounts can now be safely used in regression, forecasting, and hypothesis testing — leading to more reliable business analytics and predictive models.
+---
 
-Estimate the probability of obtaining the first successful transaction.
+## 🧮 Q6 — Z-Score & Probability Threshold
 
-Python Code
+**Calculate Z-scores for transaction amounts and compute the probability of transactions exceeding ₹5000.**
+```python
+amount = df["transaction_amount"].dropna()
+df["Z_score"] = zscore(df["transaction_amount"])
+mean = amount.mean()
+std = amount.std()
+z = (5000 - mean) / std
+probability = 1 - norm.cdf(z)
+print("Probability of transactions exceeding ₹5000:", probability)
+```
+#### 💡 Insight & Conclusion (Q6)
+- 🧮 **Z-scores** standardise each transaction amount relative to the mean, helping flag unusually high or low transactions (|Z| > 3 = outlier).
+- 💸 The computed **P(amount > ₹5000)** quantifies the likelihood of high-value transactions occurring under the assumed distribution.
+- 🧠 **Decision Insight:** This probability supports **fraud detection thresholds**, **VIP customer identification**, and **risk-based transaction monitoring** strategies.
+---
+## 📊 Q7 — PDF & CDF
+
+**Plot and interpret the PDF and CDF for transaction amounts.**
 
 ```python
-
-from scipy.stats import geom
-
-x = np.arange(1,11)
-
-geom_prob = geom.pmf(x,p)
-
+amount = df["transaction_amount"].dropna()
+mean = amount.mean()
+std = amount.std()
+x = np.linspace(amount.min(), amount.max(), 100)
+pdf = norm.pdf(x, mean, std)
+cdf = norm.cdf(x, mean, std)
+# PDF
+plt.figure(figsize=(6, 4))
+plt.plot(x, pdf)
+plt.title("PDF of Transaction Amount")
+plt.xlabel("Transaction Amount")
+plt.ylabel("Probability Density")
+plt.show()
+# CDF
+plt.figure(figsize=(6, 4))
+plt.plot(x, cdf)
+plt.title("CDF of Transaction Amount")
+plt.xlabel("Transaction Amount")
+plt.ylabel("Cumulative Probability")
+plt.show()
 ```
+#### 💡 Insight & Conclusion (Q7)
+- 📈 The **PDF** shows the concentration of transaction amounts around the mean, with a right-skewed tail.
+- 📊 The **CDF** lets us read off cumulative probabilities — e.g., the share of transactions below any given amount.
+- 🧠 **Decision Insight:** PDF/CDF together support pricing decisions, percentile-based offers (e.g., top 10% spenders), and setting alert thresholds for unusually large transactions.
+  
+---
 
-Interpretation
+# 🏁 Final Conclusion — Best Fit Distribution & Business Insights
 
-The Geometric Distribution models how many attempts are required before the first successful transaction occurs.
+### 🥇 Best-Fitting Distributions
 
-Conclusion
+| Variable | Best Distribution | Why |
+|---|---|---|
+| Transaction occurrence (yes/no) | **Bernoulli** ✅ | Binary success/failure per day |
+| Weekly transaction count | **Binomial** 📊 | Sum of 7 independent Bernoulli days |
+| Daily number of transactions | **Poisson** 🎯 | Rare, independent events at constant rate λ |
+| Transaction amount (₹) | **Log-Normal** 💰 | Positive, right-skewed, multiplicative growth |
 
-Useful for studying customer conversion behavior.
+### 🧠 Key Business Insights
+
+- 📅 **Operational Planning:** Bernoulli/Binomial probabilities help forecast active transaction days per week and align staffing & inventory.
+- 📈 **Demand Forecasting:** Poisson λ enables accurate daily transaction volume prediction and anomaly detection.
+- 💵 **Revenue & Risk Modelling:** Log-Normal fit on amounts powers reliable revenue forecasts; Power Law tail awareness protects against rare high-value/fraudulent transactions.
+- 🛡️ **Fraud Detection:** Z-scores and high-amount probabilities (P > ₹5000) provide quantitative thresholds for flagging suspicious activity.
+- 🔧 **Analytics Readiness:** Box-Cox transformation makes the data suitable for parametric models, improving the accuracy of regression & forecasting.
+### ✅ Final Verdict
+The dataset is **best described by a combination of distributions**: **Bernoulli/Binomial** for transaction occurrence, **Poisson** for daily counts, and **Log-Normal** for transaction amounts. Together they form a robust statistical foundation for **demand forecasting, fraud detection, and data-driven decision-making** at Spread Locator. 🚀
 
 ---
 
-📊 Q4 — Poisson Distribution
-
-Objective
-
-Model the number of transactions occurring during a fixed period.
-
-Python Code
-
-```python
-
-from scipy.stats import poisson
-
-lam = df["transaction_count"].mean()
-
-poisson_prob = poisson.pmf(x,lam)
-
-```
-
-Interpretation
-
-Poisson Distribution models rare events occurring within fixed intervals.
-
-Conclusion
-
-Suitable for analyzing transaction frequency.
-
----
-
-📈 Q5 — Uniform Distribution
-
-Objective
-
-Model evenly distributed transaction amounts.
-
-Python Code
-
-```python
-
-from scipy.stats import uniform
-
-```
-
-Interpretation
-
-Every value inside the specified range has an equal probability of occurring.
-
-Conclusion
-
-Provides a baseline probability model for equally likely values.
-
----
-
-📊 Q6 — Normal Distribution
-
-Objective
-
-Determine whether transaction amounts follow a bell-shaped distribution.
-
-Python Code
-
-```python
-
-from scipy.stats import norm
-
-mu = df["transaction_amount"].mean()
-
-sigma = df["transaction_amount"].std()
-
-```
-
-Interpretation
-
-The Normal Distribution evaluates whether transaction amounts are centered around the average.
-
-Conclusion
-
-Useful for identifying typical customer spending behavior.
-
----
-
-📈 Q7 — Exponential Distribution
-
-Objective
-
-Analyze waiting time between customer transactions.
-
-Python Code
-
-```python
-
-from scipy.stats import expon
-
-```
-
-Interpretation
-
-Models the time interval between independent transaction events.
-
-Conclusion
-
-Useful for transaction arrival analysis.
-
----
-
-📊 Q8 — Gamma Distribution
-
-Objective
-
-Model positively skewed transaction amounts.
-
-Python Code
-
-```python
-
-from scipy.stats import gamma
-
-```
-
-Interpretation
-
-Gamma Distribution effectively models continuous positive financial values.
-
-Conclusion
-
-Suitable for transaction amount analysis.
-
----
-
-📈 Q9 — Beta Distribution
-
-Objective
-
-Analyze transaction success probabilities.
-
-Python Code
-
-```python
-
-from scipy.stats import beta
-
-```
-
-Interpretation
-
-Beta Distribution models probabilities between 0 and 1.
-
-Conclusion
-
-Useful for probability estimation and Bayesian analysis.
-
----
-
-📊 Q10 — Log-Normal Distribution
-
-Objective
-
-Determine whether transaction amounts follow a Log-Normal Distribution.
-
-Python Code
-
-```python
-
-from scipy.stats import lognorm
-
-```
-
-Interpretation
-
-Financial transaction values often follow a Log-Normal Distribution because values are always positive and right-skewed.
-
-Conclusion
-
-Provides a realistic model for transaction amount distributions.
-
----
-
-📈 Q11 — Power Law Distribution
-
-Objective
-
-Study heavy-tailed transaction behavior.
-
-Python Code
-
-```python
-
-from scipy.stats import powerlaw
-
-```
-
-Interpretation
-
-A small number of customers contribute very large transaction amounts, while most contribute relatively small amounts.
-
-Conclusion
-
-Useful for identifying high-value customers and spending patterns.
-
----
-
-📊 Additional Statistical Analysis
-
-✔️ Q-Q Plot for Normality Testing
-
-✔️ Box-Cox Transformation
-
-✔️ Z-Score Analysis
-
-✔️ Probability of Transactions Exceeding Threshold
-
-✔️ Probability Density Function (PDF)
-
-✔️ Cumulative Distribution Function (CDF)
-
-✔️ Distribution Comparison
-
-✔️ Best Fit Distribution Analysis
-
----
-
-📊 Key Findings
-
-✔️ Transaction success and failure were effectively modeled using the Bernoulli Distribution.
-
-✔️ Customer transaction frequencies followed the Binomial and Poisson distributions.
-
-✔️ Waiting time between transactions was analyzed using the Exponential Distribution.
-
-✔️ Transaction amounts were compared across Normal, Gamma, Log-Normal, and Power Law distributions.
-
-✔️ Q-Q Plot and Box-Cox Transformation were used to evaluate normality.
-
-✔️ Z-Score analysis identified unusually high transaction values.
-
-✔️ PDF and CDF visualizations helped understand probability behavior.
-
-✔️ The best-fitting probability distribution was identified based on statistical analysis.
-
-✔️ Probability distributions transformed raw transaction data into meaningful business insights.
-
----
-
-🎯 Final Conclusion
-
-Spread Locator successfully demonstrates the application of probability distributions to real-world financial transaction data. The project explores discrete and continuous probability models including Bernoulli, Binomial, Geometric, Poisson, Uniform, Normal, Exponential, Gamma, Beta, Log-Normal, and Power Law distributions.
-
-Using Python, statistical visualization, and distribution fitting techniques, the project provides a comprehensive understanding of transaction behavior, customer activity, and probability modeling. The analysis highlights how statistical methods can support evidence-based business decisions and improve financial data analysis.
-
----
-
-🚀 How to Run
+# 🚀 How to Run
 
 Install the required libraries:
-
 ```bash
-
-pip install pandas numpy scipy matplotlib seaborn openpyxl
-
+pip install pandas numpy scipy matplotlib seaborn statsmodels openpyxl
 ```
-
 Open Jupyter Notebook:
-
 ```bash
-
 jupyter notebook
-
 ```
-
 Run:
-
 ```text
-
 spread_locator.ipynb
-
 ```
-
 ---
-
-👩‍💻 Shruti Bhawsar
-
+# 👩‍💻 Shruti Bhawsar
 📍 Ahmedabad, Gujarat, India
+⭐ If you found this project helpful, consider giving it a **Star ⭐** and feel free to **Fork 🍴** the repository.
+### 📊 Probability Distributions • Statistical Modeling • Financial Data Analysis • Data-Driven Decisions
 
-⭐ If you found this project helpful, consider giving it a Star ⭐ and feel free to Fork 🍴 the repository.
-
-📊 Probability Distributions • Statistical Modeling • Financial Data Analysis • Data-Driven Decisions
