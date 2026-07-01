@@ -8,17 +8,15 @@ to understand and apply the concepts of probability distributions and spread ana
 
 The complete analysis is implemented using **Python (Jupyter Notebook)** with detailed explanations, mathematical formulas, visualizations, statistical interpretations, and business-oriented conclusions.
 
----![Uploading _- visual selection.svg…]()
-
 
 # 🎯 Objective
 
 an e-commerce platform that wants to understand customer purchase behaviors by analyzing daily transaction amounts of customers. Management is particularly interested in knowing whether the transactions follow certain statistical distributions, how to handle skewed data, and what probability insights can be derived.
 Your task is to apply statistical distribution concepts and transformations to derive insights on transaction behaviors.
+
 ---
 
 <img width="1200" height="1116" alt="_- visual selection" src="https://github.com/user-attachments/assets/4bec7b74-4175-4800-8f5b-8d8022d29ed7" />
-
 
 ---
 
