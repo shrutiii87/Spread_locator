@@ -11,6 +11,8 @@ to understand and apply the concepts of probability distributions and spread ana
 
 The complete analysis is implemented using Python (Jupyter Notebook) with detailed explanations, mathematical formulas, visualizations, statistical interpretations, and business-oriented conclusions.
 
+---
+
 🎯 Objective
 
 an e-commerce platform that wants to understand customer purchase behaviors by analyzing daily transaction amounts of customers. Management is particularly interested in knowing whether the transactions follow certain statistical distributions, how to handle skewed data, and what probability insights can be derived.
